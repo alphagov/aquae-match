@@ -12,7 +12,7 @@ class MatchTest < Test::Unit::TestCase
         :postcode => 'A12 B34'
     }
     args = default.update(attributes)
-    MatchingDataSet.new args[:surname], args[:date_of_birth], args[:postcode]
+    AquaeMatch::NormalisedMatchingSet.new args[:surname], args[:year_of_birth], args[:month_of_birth], args[:day_of_birth], args[:postcode]
   end
 
   def match mds, data=[]
