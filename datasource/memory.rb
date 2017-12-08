@@ -24,7 +24,7 @@ module AquaeMatch
       end
 
       def where_attribute_equal_or_missing set, name, value
-        set.select {|record| record.send(name) == value || record.send(name).nil? }
+        set.select {|record| record.send(name) == value || value.nil? || record.send(name).nil? }
       end
 
       def key_from_single_record records

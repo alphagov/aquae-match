@@ -42,7 +42,7 @@ module AquaeMatch
       end
 
       def where_attribute_equal_or_missing set, name, value
-        set.where(Sequel.|({name => value}, {name => nil}))
+        set.where(Sequel.|({name => value}, {name => nil})) unless value.nil?
       end
 
       def key_from_single_record set
