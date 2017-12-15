@@ -20,7 +20,7 @@ module AquaeMatch
     end
 
     def filter_by_addresses(mds, candidates)
-      @source.where_attribute_equal_or_missing candidates, :postcode, mds.postcode
+      @source.where_attribute_equal candidates, :postcode, mds.postcode
     end
 
     def search_by_surname_dob(mds)

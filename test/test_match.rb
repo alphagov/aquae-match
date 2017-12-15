@@ -38,6 +38,8 @@ class MatchTest < Test::Unit::TestCase
 
   test 'match for missing attributes throws error' do
     assert_raise(ArgumentError) { match(mds_fixture(surname: nil))}
+    assert_raise(ArgumentError) { match(mds_fixture(postcode: nil))}
+    assert_raise(ArgumentError) { match(mds_fixture(year_of_birth: nil, month_of_birth: nil, day_of_birth: nil))}
   end
 
   test 'match using single row database returns result' do
@@ -82,11 +84,6 @@ class MatchTest < Test::Unit::TestCase
 
   test 'match from missing year of birth using single row' do
     mds = mds_fixture year_of_birth: nil
-    assert_match mds, JONES_RECORD
-  end
-
-  test 'match from missing postcode using single row' do
-    mds = mds_fixture postcode: nil
     assert_match mds, JONES_RECORD
   end
 
